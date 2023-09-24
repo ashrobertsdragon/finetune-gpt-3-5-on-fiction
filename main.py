@@ -70,18 +70,21 @@ def process_files():
   
 	books = "books"
 	fine_tune_messages = []
+  for file_name in os.path.dir(books):
+    if file_name == ".gitkeep":
+      continue
+    else:
+    	for root, _, files in os.walk(books):
+		    for file in files:
+    			file_path = os.path.join(root, file)
+		    	content = read_text_file(file_path)
+    			chapters = separate_into_chapters(content)
 
-	for root, _, files in os.walk(books):
-		for file in files:
-			file_path = os.path.join(root, file)
-			content = read_text_file(file_path)
-			chapters = separate_into_chapters(content)
-
-			for chapter in chapters:
-				chunks = split_into_chunks(chapter)
-				formatted_messages = format_for_fine_tuning(chunks)
-				fine_tune_messages.extend(formatted_messages)
-			print(f"{file} processed")
+		    	for chapter in chapters:
+				    chunks = split_into_chunks(chapter)
+    				formatted_messages = format_for_fine_tuning(chunks)
+		    		fine_tune_messages.extend(formatted_messages)
+    			print(f"{file} processed")
 
 	write_jsonl_file(fine_tune_messages, "fine_tune.jsonl")
 	print("All files processed")
