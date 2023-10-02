@@ -1,6 +1,11 @@
 books/*
+
 .upm/
+.git/
+.pythonlibs/
+
 poetry.lock
 pyproject.toml
+
 .replit
 replit.nix
