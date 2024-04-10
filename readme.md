@@ -1,5 +1,8 @@
-# Book Chunking and Fine-tuning with GPT-3.5-Turbo
+# DEPRECIATED
+This uses both the kld version of GPT 3.5-Turbo and the old version of OpenAI's APIs. These endpoints will no longer work. a newer version of this orojiect is available at https://github.com/ashrobertsdragon/Finetune-GPT-3.5-for-Authors
 
+# Book Chunking and Fine-tuning with GPT-3.5-Turbo
+ 
 This Python script is designed to help you chunk your books into smaller segments and format them into JSONL files for fine-tuning GPT-3.5-Turbo using OpenAI's API. 
 The script takes text files with chapters separated by three asterisks (***), splits them into chunks of approximately 2000 tokens, and structures the data into user prompt and assistant message pairs with a system message based on the author's name.
 As a first experiment, I tried splitting chapters into 2000 token chunks and feeding one chunk as the user prompt and next as the assistant response, but then using that chunk as the next user prompt
